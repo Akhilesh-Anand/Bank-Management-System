@@ -1,4 +1,4 @@
-# Bank-Management-System
+
 # Bank Account Management System
 
 I built this as part of my college project in my 3rd semester (second year), together with my friend. It's a simple console-based bank where you can create accounts, move money around and see what happened to it later. The code is written in Java and the data lives in a MySQL database.
