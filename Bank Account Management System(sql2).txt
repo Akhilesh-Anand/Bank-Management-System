@@ -1,0 +1,21 @@
+USE bankdb;
+
+-- Total money in the bank
+SELECT SUM(balance) AS total_money FROM accounts;
+
+-- Richest account
+SELECT * FROM accounts ORDER BY balance DESC LIMIT 1;
+
+-- Transactions per account
+SELECT account_no, COUNT(*) AS total_transactions
+FROM transactions GROUP BY account_no;
+
+-- Last 5 transactions of one account
+SELECT * FROM transactions
+WHERE account_no = 1001
+ORDER BY txn_date DESC, txn_id DESC LIMIT 5;
+
+-- Join: holder name with each transaction
+SELECT a.account_no, a.holder_name, t.txn_type, t.amount, t.txn_date
+FROM accounts a JOIN transactions t ON a.account_no = t.account_no
+ORDER BY t.txn_date DESC;
